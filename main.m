@@ -16,4 +16,7 @@ simin.time = t;
 simin.signals.values = u;
 %% Aufgabe 3.1
 
-display(R);
+% a)
+s1 = -(R/L + mu/J)/2 + sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J))
+s2 = -(R/L + mu/J)/2 - sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J))
+
