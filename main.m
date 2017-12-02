@@ -32,3 +32,9 @@ bode(G,Gschlange);
 legend({'G', '\~{G}'}, 'Interpreter', 'Latex', 'FontSize', 16);
 title('Originale und approximierte Übertragungsfunktion');
 
+%% Aufgabe 3.3
+
+% c)
+L = 9/(-s/s1 + 1);
+[Gm,Pm,Wgm,Ws] = margin(L);
+
