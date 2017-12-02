@@ -1,4 +1,5 @@
-load Modellparameter.mat
+load Modellparameter.mat;
+
 %% Aufgabe 3.0
 
 % a)
@@ -19,4 +20,15 @@ simin.signals.values = u;
 % a)
 s1 = -(R/L + mu/J)/2 + sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J))
 s2 = -(R/L + mu/J)/2 - sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J))
+
+
+% c)
+s = tf('s');
+
+G = (V*Km)/(s1*s2*L*J*(-s/s1 + 1)*(-s/s2 + 1));
+Gschlange = (V*Km)/(s1*s2*L*J*(-s/s1 + 1));
+
+bode(G,Gschlange);
+legend({'G', '\~{G}'}, 'Interpreter', 'Latex', 'FontSize', 16);
+title('Originale und approximierte Übertragungsfunktion');
 
