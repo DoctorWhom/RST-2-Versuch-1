@@ -81,3 +81,19 @@ Cikrit = Kikrit/s;
 L = Cikrit * G;
 
 nyquist(L);
+
+%% Aufgabe 3.5
+
+% Einlesen der Simulationsdaten aus Simulink
+time=simout.time; % Zeitvektor aus der Struktur simout auslesen
+ref=simout.signals.values (: ,1); % Referenz liegt an der Position 1 am Mux an
+y=simout.signals.values (: ,2); % Ausgang liegt an der Position 2 am Mux an
+
+% Darstellung der Ergebnisse
+figure; % neues Graphikfenster
+plot(time ,ref ,'b') % plot des Referenzsignals in blau ’b’
+hold on % verhindert ueberschreiben des aktuellen Plots
+plot(time ,y,'r'); % plot des Ausgangssignals in rot ’r’
+grid on; % Raster an
+xlabel('Time t in s'); % Beschriftung x-Achse
+ylabel('Output y in rad/s'); % Beschriftung y-Achse
