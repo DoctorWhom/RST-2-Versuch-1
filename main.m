@@ -73,3 +73,11 @@ r = 99.48376725 * heaviside(t);
 y = lsim(Ti,r,t);
 Mp = 0;
 S = stepinfo(y,t) %Simulation von y und Ausgabe von Mp
+
+% g)
+
+Kikrit = (tau1 + tau2)/K;
+Cikrit = Kikrit/s;
+L = Cikrit * G;
+
+nyquist(L);
