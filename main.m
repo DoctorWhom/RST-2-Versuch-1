@@ -97,3 +97,22 @@ plot(time ,y,'r'); % plot des Ausgangssignals in rot ’r’
 grid on; % Raster an
 xlabel('Time t in s'); % Beschriftung x-Achse
 ylabel('Output y in rad/s'); % Beschriftung y-Achse
+
+%% Aufgabe 3.6
+
+K1 = 0.14;
+Cpi = K1*(tau1*s + 1)/s;
+Lpi = Cpi * Gschlange;
+
+% c)
+
+margin(Lpi);
+
+Tpi = feedback(Lpi, 1);
+
+t = 0:2e-3:10;
+r = 99.48376725 * heaviside(t);
+
+lsim(Tpi,r,t);
+
+% f): 
