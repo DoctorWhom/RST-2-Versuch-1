@@ -23,10 +23,15 @@ s2 = -(R/L + mu/J)/2 - sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J))
 
 
 % c)
+
 s = tf('s');
 
-G = (V*Km)/(s1*s2*L*J*(-s/s1 + 1)*(-s/s2 + 1));
-Gschlange = (V*Km)/(s1*s2*L*J*(-s/s1 + 1));
+K = V*Km/(s1*s2*L*J);
+tau1 = -1/s1;
+tau2 = -1/s2;
+
+G = K/((tau1 * s + 1)*(tau2 * s + 1));
+Gschlange = K/(tau1 * s + 1);
 
 bode(G,Gschlange);
 legend({'G', '\~{G}'}, 'Interpreter', 'Latex', 'FontSize', 16);
@@ -35,6 +40,11 @@ title('Originale und approximierte Übertragungsfunktion');
 %% Aufgabe 3.3
 
 % c)
-L = 9/(-s/s1 + 1);
+L = 9/(tau1 * s + 1);
 [Gm,Pm,Wgm,Ws] = margin(L);
+
+% e)
+
+
+
 
