@@ -9,5 +9,5 @@ K = V*Km/(s1*s2*L*J);
 tau1 = -1/s1;
 
 syms X;
-Kp = vpa(solve(abs(K*X/(1i*tau1*omegas + 1)) == 1, X));
+Kp = double(solve(abs(K*X/(1i*tau1*omegas + 1)) == 1, X));
 end

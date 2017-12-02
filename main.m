@@ -18,8 +18,8 @@ simin.signals.values = u;
 %% Aufgabe 3.1
 
 % a)
-s1 = -(R/L + mu/J)/2 + sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J))
-s2 = -(R/L + mu/J)/2 - sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J))
+s1 = -(R/L + mu/J)/2 + sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J));
+s2 = -(R/L + mu/J)/2 - sqrt((R/(2*L) + mu/(2*J))^2 - Ke*Km/(L*J));
 
 
 % c)
@@ -43,8 +43,15 @@ title('Originale und approximierte Übertragungsfunktion');
 L = 9/(tau1 * s + 1);
 [Gm,Pm,Wgm,Ws] = margin(L);
 
+% d) - in 'omega_s_to_kp.m'
+
 % e)
 
+Cp = omega_s_to_kp(5);
+Lp = Cp * Gschlange;
+T = feedback(Lp, 1); %Führungsübertragungsfunktion mit Schnittfrequenz 5 rads^-1
 
+t = 0:2e-3:10;
+r = 950 * heaviside(t);
 
-
+lsim(T,r,t);
