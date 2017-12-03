@@ -54,6 +54,7 @@ T = feedback(Lp, 1); %Führungsübertragungsfunktion mit Schnittfrequenz 5 rads^-1
 t = 0:2e-3:10;
 r = 99.48376725 * heaviside(t);
 
+figure;
 lsim(T,r,t);
 
 %% Aufgabe 3.4
@@ -64,6 +65,7 @@ Ki = 0.007;
 Ci = Ki/s;
 Lschlange = Ci * Gschlange;
 
+figure;
 margin(Lschlange); % Bode-Diagramm und Berechnung des Phasenrandes
 
 Ti = feedback(Lschlange, 1);
@@ -121,5 +123,11 @@ lsim(Tpi,r,t);
 
 %% Aufgabe 3.7
 
-Si = feedback (Gschlange, Cpi);
+% a)
+
+Si = feedback (Gschlange, Cpi)
 bode(Si);
+
+% b)
+
+Su = feedback (Cpi, G)
