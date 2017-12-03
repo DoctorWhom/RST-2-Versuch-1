@@ -72,7 +72,7 @@ r = 99.48376725 * heaviside(t);
 
 y = lsim(Ti,r,t);
 Mp = 0;
-S = stepinfo(y,t) %Simulation von y und Ausgabe von Mp
+S = stepinfo(y,t); %Simulation von y und Ausgabe von Mp
 
 % g)
 
@@ -113,6 +113,13 @@ Tpi = feedback(Lpi, 1);
 t = 0:2e-3:10;
 r = 99.48376725 * heaviside(t);
 
+figure;
 lsim(Tpi,r,t);
 
 % f): in time_to_sum_form.m
+
+
+%% Aufgabe 3.7
+
+Si = feedback (Gschlange, Cpi);
+bode(Si);
